@@ -80,6 +80,7 @@ cat .ruby-version | rbenv global
 # dockerでプロジェクトを立ち上げて、コンテナ内でやること
 rails db:create
 rails db:migrate
+rails db:seed
 ```
 
 ## プロジェクト作成時のコマンド
@@ -209,6 +210,15 @@ rails db:migrate
 
 ```shell
 rails dbconsole
+```
+
+### コンソールを立ち上げる
+
+```shell
+rails console
+
+# 簡略
+rails c
 ```
 
 ## トラブルシューティング
