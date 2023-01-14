@@ -114,3 +114,58 @@ docker compose up -d
 ```shell
 docker compose stop
 ```
+
+### サーバーコンテナに入る
+
+```shell
+docker exec -it コンテナ名 bash
+```
+
+## Rails コマンド
+
+- コンテナの中に入って実行する
+
+### コントローラーを生成する
+
+- コントローラー名
+  - 名前は複数形にするのが一般的
+  - DB と直接紐付かない場合は単数形
+  - クラス名にも使われる
+- メソッド名
+  - ルーティングによって指定される名前としてのインックスアクション
+
+```shell
+rails generate controller コントローラー名 コントローラー内で定義するメソッド名
+
+# 簡略
+rails g controller コントローラー名 コントローラー内で定義するメソッド名
+```
+
+### アクションと URL パスの対応表を確認する
+
+- 表示例
+  | Prefix | Verb | URI Pattern | Controller#Action |
+  | :---------: | :--: | :--------------------: | :---------------: |
+  | users_index | GET | /users/index(.:format) | users#index |
+  - Prefix
+    - リンクを設置する際、パスを指定するときに使う
+    - `Prefix名_path` 、 `Prefix名_url` が追加される
+  - Verb
+    - HTTP メソッド
+  - URI Pattern
+    - ルーティングで待ち受けるパス
+    - `.:format` は必須ではないパラメータ
+  - Controller#Action
+    - `コントローラー名#メソッド名` の処理が実行される
+
+```shell
+rails routes
+```
+
+- ルーティングの設定をするファイル
+  - `config/routes.rb`
+
+## トラブルシューティング
+
+- Docker コンテナー内で rails 関連のコマンドが打てない場合
+  - `Gemfile.lock` に使用するプラットフォームの更新がかかっていないか確認する
