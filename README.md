@@ -76,6 +76,10 @@ brew upgrade ruby-build
 # ruby install
 cat .ruby-version | rbenv install
 cat .ruby-version | rbenv global
+
+# dockerでプロジェクトを立ち上げて、コンテナ内でやること
+rails db:create
+rails db:migrate
 ```
 
 ## プロジェクト作成時のコマンド
@@ -141,6 +145,21 @@ rails generate controller コントローラー名 コントローラー内で�
 rails g controller コントローラー名 コントローラー内で定義するメソッド名
 ```
 
+### モデルを生成する
+
+- モデル名
+  - 単数形
+  - 最初の文字は大文字
+- DB 構造
+  - `カラム名:型` という形式で複数の値をスペース区切りにして指定する
+
+```shell
+rails g model モデル名 DB構造
+
+# 簡略
+rails g model モデル名 DB構造
+```
+
 ### アクションと URL パスの対応表を確認する
 
 - 表示例
@@ -164,6 +183,33 @@ rails routes
 
 - ルーティングの設定をするファイル
   - `config/routes.rb`
+
+### DB 環境を設定する
+
+- 以下のときにコマンドを実行する
+  - プロジェクト初回の設定
+  - DB の初期化
+  - DB の作り直し
+
+```shell
+rails db:create
+```
+
+### マイグレーションを実行する
+
+- `db/migrate` にマイグレーション用のファイルがあることを確認してから実行する
+
+```shell
+rails db:migrate
+```
+
+### データベースの構造を確認する
+
+- DB をコマンドで操作できる
+
+```shell
+rails dbconsole
+```
 
 ## トラブルシューティング
 
