@@ -1,7 +1,19 @@
 version: "3"
 services:
-  # db:
-  #   image: postgres
+  db:
+    container_name: db
+    restart: always
+    image: postgres
+    # platform: linux/x86_64
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ruby_on_rails_sample_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - "5432:5432"
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -9,8 +21,8 @@ services:
       - .:/myapp
     ports:
       - "3000:3000"
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
     # environment:
     #   - POSTGRES_DB=postgres
     #   - POSTGRES_USER=postgres
