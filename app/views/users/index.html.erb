@@ -2,3 +2,11 @@
 <p><%= 10 + 1 %></p>
 <p><% 10 + 2 %></p>
 <p><%= @num %></p>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= user.id %>, <%= user.name %>, <%= user.age %>
+    </li>
+  <% end %>
+</ul>
