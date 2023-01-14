@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
-    render plain: 'Hello World!'
+    # viewでも使えるようにインスタンス変数として定義
+    @num = 10 + 1
   end
 end
