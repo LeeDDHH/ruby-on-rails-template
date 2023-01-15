@@ -213,7 +213,12 @@ rails c
 - Docker コンテナー内で rails 関連のコマンドが打てない場合
   - `Gemfile.lock` に使用するプラットフォームの更新がかかっていないか確認する
 - Ruby on Rails コンテナから DB に接続できない場合
+  - `could not connect to server: Connection refused Is the server running on host "localhost" (127.0.0.1) and accepting TCP/IP connections on port 5432?` のようなエラー
   - `rm tmp/pids/server.pid` で pid ファイルを削除する
+  - 参考
+    - [rails server が起動できません。](https://teratail.com/questions/287684)
+    - [PostgreSQL に急に接続できなくなった時の対処法 - Qiita](https://qiita.com/TakuTaku36/items/69e489c4467dd2b7279e)
+    - [ruby on rails - PG::ConnectionBad - could not connect to server: Connection refused - Stack Overflow](https://stackoverflow.com/questions/19828385/pgconnectionbad-could-not-connect-to-server-connection-refused)
 
 ## 参考
 
