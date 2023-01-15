@@ -6,7 +6,7 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   host: <%= ENV['DATABASE_HOST'] || 'db' %>
   port: <%= ENV['DATABASE_PORT'] || '5432' %>
   username: postgres
