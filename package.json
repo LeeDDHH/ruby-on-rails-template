@@ -8,6 +8,7 @@
     "dev:down": "yarn dev:stop && yarn docker:db down && yarn docker:web down",
     "docker:web": "docker-compose -f docker/web/docker-compose.yml -p ruby_on_rails",
     "docker:db": "docker-compose -f docker/db/docker-compose.yml -p ruby_on_rails",
+    "build": "yarn docker:web build --no-cache",
     "migrate": "docker exec -it web bundle exec rails db:migrate",
     "seed": "docker exec -it web bundle exec rails db:seed",
     "console": "docker exec -it web bundle exec rails c",
