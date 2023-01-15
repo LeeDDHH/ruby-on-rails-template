@@ -77,11 +77,30 @@ brew upgrade ruby-build
 cat .ruby-version | rbenv install
 cat .ruby-version | rbenv global
 
-# dockerでプロジェクトを立ち上げて、コンテナ内でやること
-rails db:create
-rails db:migrate
-rails db:seed
+# dockerでプロジェクトを立ち上げる
+yarn dev
+# DBを生成する
+yarn db:create
+# マイグレーションをする
+yarn migrate
+# seedを投入する
+yarn seed
 ```
+
+## yarn コマンド
+
+|            |                                                                                    |
+| :--------: | :--------------------------------------------------------------------------------: |
+|    dev     |                            開発環境のコンテナを起動する                            |
+|  dev:stop  |                            開発環境のコンテナを停止しる                            |
+|  dev:down  | 開発環境のコンテナを停止し、コンテナ・ネットワーク・ボリューム・イメージを削除する |
+| docker:web |                Ruby on Rails のコンテナを docker-compose で指定する                |
+| docker:db  |                DB（Postges） のコンテナを docker-compose で指定する                |
+|    seed    |                      Ruby on Rails 経由で初期データを投入する                      |
+|  migrate   |    `db/migrate` 配下のマイグレーションファイルをもとに、マイグレーションをする     |
+|  console   |                             `rails console` を起動する                             |
+|   routes   |                 Ruby on Rails で管理するルーティング一覧を表示する                 |
+|   clean    |            開発環境特有の問題が発生した場合、関連するファイルを削除する            |
 
 ## プロジェクト作成時のコマンド
 
@@ -225,3 +244,10 @@ rails c
 
 - Docker コンテナー内で rails 関連のコマンドが打てない場合
   - `Gemfile.lock` に使用するプラットフォームの更新がかかっていないか確認する
+- Ruby on Rails コンテナから DB に接続できない場合
+  - `rm tmp/pids/server.pid` で pid ファイルを削除する
+
+## 参考
+
+- [Docker 上で Ruby on Rails 7 の開発環境を構築してみた | MSeeeeN](https://mseeeen.msen.jp/rails-docker/)
+- [はじめての Ruby on Rails 入門-Ruby と Rails を基礎から学びウェブアプリケーションをネットに公開しよう | Udemy](https://www.udemy.com/course/the-ultimate-ruby-on-rails-bootcamp/)
