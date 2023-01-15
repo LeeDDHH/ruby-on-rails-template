@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "yarn docker:db up -d && yarn docker:web up -d",
+    "dev:start": "yarn docker:db start && yarn docker:web start",
     "dev:stop": "yarn docker:db stop && yarn docker:web stop",
     "dev:down": "yarn dev:stop && yarn docker:db down && yarn docker:web down",
     "docker:web": "docker-compose -f docker/web/docker-compose.yml -p ruby_on_rails",
