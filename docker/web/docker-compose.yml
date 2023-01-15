@@ -1,0 +1,19 @@
+version: "3"
+services:
+  web:
+    container_name: web
+    build:
+      context: ../../
+      dockerfile: docker/web/Dockerfile
+    command: bundle exec rails s -u puma -p 3000 -b '0.0.0.0'
+    tty: true
+    stdin_open: true
+    volumes:
+      - ../../:/myapp
+    ports:
+      - "3000:3000"
+    networks:
+      web-db-net:
+
+networks:
+  web-db-net:
