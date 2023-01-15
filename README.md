@@ -96,54 +96,22 @@ yarn seed
 |  dev:down  | 開発環境のコンテナを停止し、コンテナ・ネットワーク・ボリューム・イメージを削除する |
 | docker:web |                Ruby on Rails のコンテナを docker-compose で指定する                |
 | docker:db  |                DB（Postges） のコンテナを docker-compose で指定する                |
+|   build    |                        Ruby on Rails のコンテナをビルドする                        |
 |    seed    |                      Ruby on Rails 経由で初期データを投入する                      |
 |  migrate   |    `db/migrate` 配下のマイグレーションファイルをもとに、マイグレーションをする     |
 |  console   |                             `rails console` を起動する                             |
 |   routes   |                 Ruby on Rails で管理するルーティング一覧を表示する                 |
 |   clean    |            開発環境特有の問題が発生した場合、関連するファイルを削除する            |
 
-## プロジェクト作成時のコマンド
-
-- rails プロジェクト作成時に行ったコマンド
-  - `docker compose run サービス名 コマンド`
-
-```shell
-docker-compose run web rails new .
-```
-
-## コマンド
-
-### サーバーイメージのビルド
+### Ruby on Rails のコンテナのビルド
 
 - ビルドが必要なとき
   - 新たな Gemfile が作成される
   - Gemdfile が更新される
-  - Dockerfile が修正される
+  - Dockerfile、docker-compose.yml が修正される
 - ビルドし直す必要がある場合、docker で生成した以下の要素を削除してから行う
   - docker コンテナ
   - docker イメージ
-
-```shell
-docker compose build
-```
-
-### サーバー立ち上げ
-
-```shell
-docker compose up -d
-```
-
-### サーバー停止
-
-```shell
-docker compose stop
-```
-
-### サーバーコンテナに入る
-
-```shell
-docker exec -it コンテナ名 bash
-```
 
 ## Rails コマンド
 
