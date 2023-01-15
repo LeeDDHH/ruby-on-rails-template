@@ -2,13 +2,16 @@
 
 ## 動作環境
 
-|         |        |                                             |
-| :-----: | :----: | :-----------------------------------------: |
-|  Ruby   | 3.0.2  |               rbenv から追加                |
-|  rbenv  | 1.2.0  |                brew から追加                |
-|   gem   | 3.2.22 | Ruby がインストールされていれば、入っている |
-| bundler | 2.2.22 |            `gem install bundler`            |
-|  rails  | 7.0.0  |                                             |
+|               |        |                                             |
+| :-----------: | :----: | :-----------------------------------------: |
+|     Ruby      | 3.0.2  |               rbenv から追加                |
+|     rbenv     | 1.2.0  |                brew から追加                |
+|      gem      | 3.2.22 | Ruby がインストールされていれば、入っている |
+|    bundler    | 2.2.22 |            `gem install bundler`            |
+|     rails     | 7.0.0  |             `gem install rails`             |
+|  rspec-rails  | 6.0.1  |                                             |
+|    rubocop    | 1.43.0 |                                             |
+| rubocop-rails | 2.17.4 |                                             |
 
 ### 開発環境
 
@@ -28,7 +31,6 @@
 
 ```markdown
 .
-├── Dockerfile （サーバーのベースが記載されたファイル
 ├── Gemfile （Rails で扱うパッケージの依存関係を指定したファイル
 ├── Gemfile.lock （Gemfile から実際にインストールされた Gem の一覧とバージョン
 ├── README.md （プロジェクトの説明
@@ -54,7 +56,9 @@
 │   └── locales （辞書ファイル用のディレクトリ
 ├── config.ru （Rack 用のファイル
 ├── db （データベース関連のファイル用のディレクトリ
-├── docker-compose.yml （サーバー起動用ファイル
+├── docker （Docker の設定ファイル用のディレクトリ
+│   ├── db （DB 用の Docker の設定ファイルディレクトリ
+│   └── web （Ruby on Rails 用の Docker の設定ファイルディレクトリ
 ├── lib （複数のアプリケーション間で共有するライブラリ用のディレクトリ
 │   ├── assets （自分で生成したライブラリ用のディレクトリ
 │   └── tasks （自分で生成した Rakefile 用のディレクトリ
