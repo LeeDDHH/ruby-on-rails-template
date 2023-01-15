@@ -7,7 +7,7 @@
 |  Ruby   | 3.0.2  |               rbenv から追加                |
 |  rbenv  | 1.2.0  |                brew から追加                |
 |   gem   | 3.2.22 | Ruby がインストールされていれば、入っている |
-| bundler | 2.4.3  |            `gem install bundler`            |
+| bundler | 2.2.22 |            `gem install bundler`            |
 |  rails  | 7.0.0  |                                             |
 
 ### 開発環境
