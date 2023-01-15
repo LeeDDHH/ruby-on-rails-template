@@ -1,0 +1,18 @@
+{
+  "name": "ruby-on-rails-sample",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "yarn docker:db up -d && yarn docker:web up -d",
+    "dev:stop": "yarn docker:db stop && yarn docker:web stop",
+    "dev:down": "yarn dev:stop && yarn docker:db down && yarn docker:web down",
+    "docker:web": "docker-compose -f docker/web/docker-compose.yml -p ruby_on_rails",
+    "docker:db": "docker-compose -f docker/db/docker-compose.yml -p ruby_on_rails",
+    "migrate": "docker exec -it web bundle exec rails db:migrate",
+    "seed": "docker exec -it web bundle exec rails db:seed",
+    "console": "docker exec -it web bundle exec rails c",
+    "routes": "docker exec -it web bundle exec rails routes",
+    "clean": "rm -rf tmp/pids/server.pid",
+    "db:create": "docker exec -it web bundle exec rails db:create"
+  }
+}
