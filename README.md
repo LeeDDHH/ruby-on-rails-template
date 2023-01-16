@@ -108,6 +108,8 @@ yarn seed
 |  console   |                             `rails console` を起動する                             |
 |   routes   |                 Ruby on Rails で管理するルーティング一覧を表示する                 |
 |   clean    |            開発環境特有の問題が発生した場合、関連するファイルを削除する            |
+|  log:web   |          Ruby on Rails のコンテナ内で表示するログをターミナルでも表示する          |
+|   log:db   |          DB（Postges） のコンテナ内で表示するログをターミナルでも表示する          |
 
 ### Ruby on Rails のコンテナのビルド
 
