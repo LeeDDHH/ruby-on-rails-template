@@ -15,6 +15,8 @@
     "console": "docker exec -it web bundle exec rails c",
     "routes": "docker exec -it web bundle exec rails routes",
     "clean": "rm -rf tmp/pids/server.pid",
-    "db:create": "docker exec -it web bundle exec rails db:create"
+    "db:create": "docker exec -it web bundle exec rails db:create",
+    "log:web": "docker logs -f web",
+    "log:db": "docker logs -f db"
   }
 }
